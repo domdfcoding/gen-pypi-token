@@ -4,7 +4,7 @@ gen-pypi-token
 
 .. start short_desc
 
-**Generate per-project PyPI tokens**
+**Generate per-project PyPI tokens.**
 
 .. end short_desc
 

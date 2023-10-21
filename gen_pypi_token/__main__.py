@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-#  __init__.py
+#  __main__.py
 """
 Generate per-project PyPI tokens.
 """
@@ -26,8 +26,46 @@ Generate per-project PyPI tokens.
 #  OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-__author__: str = "Dominic Davis-Foster"
-__copyright__: str = "2023 Dominic Davis-Foster"
-__license__: str = "MIT License"
-__version__: str = "0.0.0"
-__email__: str = "dominic@davis-foster.co.uk"
+# stdlib
+import sys
+from typing import Tuple
+
+# 3rd party
+import click
+import pypitoken  # type: ignore
+from consolekit.options import DescribedArgument
+
+__all__ = ["main"]
+
+
+@click.argument(
+		"project",
+		cls=DescribedArgument,
+		type=click.STRING,
+		description="The project to generate a token for.",
+		nargs=-1,
+		)
+@click.option("-t", "--token", help="The base PyPI token.", envvar="PYPI_TOKEN")
+@click.command()
+def main(project: Tuple[str], token: str) -> None:
+	"""
+	Generate per-project PyPI tokens.
+
+	PROJECT can be supplied multiple times to allow the token to be used with multiple projects.
+	"""
+
+	tok = pypitoken.Token.load(token)
+
+	print("Existing restrictions", file=sys.stderr)
+	print(tok.restrictions, file=sys.stderr)
+
+	tok.restrict(project_names=project)
+
+	print("\nNew restrictions", file=sys.stderr)
+	print(tok.restrictions, file=sys.stderr, end="\n\n")
+
+	print(tok.dump())
+
+
+if __name__ == "__main__":
+	main()

@@ -5,7 +5,7 @@ build-backend = "whey"
 [project]
 name = "gen-pypi-token"
 version = "0.0.0"
-description = "Generate per-project PyPI tokens"
+description = "Generate per-project PyPI tokens."
 readme = "README.rst"
 keywords = []
 dynamic = [ "requires-python", "classifiers", "dependencies",]
@@ -27,7 +27,7 @@ Homepage = "https://github.com/domdfcoding/gen-pypi-token"
 gen-pypi-token = "gen_pypi_token.__main__:main"
 
 [tool.whey]
-base-classifiers = []
+base-classifiers = [ "Typing :: Typed",]
 python-versions = [ "3.8", "3.9", "3.10", "3.11", "3.12",]
 python-implementations = [ "CPython",]
 platforms = [ "Windows", "macOS", "Linux",]
