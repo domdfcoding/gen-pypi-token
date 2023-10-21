@@ -1,0 +1,28 @@
+# Configuration for 'repo_helper' (https://github.com/repo-helper/repo_helper)
+---
+modname: 'gen-pypi-token'
+copyright_years: '2023'
+author: 'Dominic Davis-Foster'
+email: 'dominic@davis-foster.co.uk'
+username: 'domdfcoding'
+version: '0.0.0'
+license: 'MIT'
+short_desc: 'Generate per-project PyPI tokens'
+
+enable_conda: false
+enable_tests: false
+enable_docs: false
+use_whey: true
+on_pypi: false
+
+# Versions to run tests for
+python_versions:
+ - '3.8'
+ - '3.9'
+ - '3.10'
+ - '3.11'
+ - '3.12'
+ - 3.13-dev
+
+console_scripts:
+ - "gen-pypi-token = gen_pypi_token.__main__:main"
