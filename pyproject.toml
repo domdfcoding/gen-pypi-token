@@ -34,6 +34,7 @@ license-key = "MIT"
 package = "gen_pypi_token"
 
 [tool.importcheck]
+always = [ "gen_pypi_token", "gen_pypi_token.__main__",]
 
 [tool.mypy]
 python_version = "3.8"
