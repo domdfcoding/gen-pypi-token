@@ -54,6 +54,9 @@ def main(project: Tuple[str], token: str) -> None:
 	PROJECT can be supplied multiple times to allow the token to be used with multiple projects.
 	"""
 
+	if not token or not token.strip():
+		raise click.UsageError("No PyPI token provided.")
+
 	tok = pypitoken.Token.load(token)
 
 	print("Existing restrictions", file=sys.stderr)
