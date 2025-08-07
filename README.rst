@@ -67,7 +67,7 @@ gen-pypi-token
 	:target: https://github.com/domdfcoding/gen-pypi-token/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2023
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2025
 	:alt: Maintenance
 
 .. end shields
